@@ -22,4 +22,12 @@ function palindrome(str) {
   return reversedString === str;
 }
 
+// Solution 2 (Fun solution):
+function palindrome(str) {
+  return str.split('').every((character, i) => {
+    // We need to include - i for every iteration of array
+    return character === str[str.length - i - 1];
+  });
+}
+
 module.exports = palindrome;
