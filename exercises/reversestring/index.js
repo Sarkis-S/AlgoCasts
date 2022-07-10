@@ -30,7 +30,7 @@ function reverse(str) {
 // Solution 2:
 function reverse(str) {
   let reversed = '';
-
+  // Each iteration reversed variable is concat with new character
   for (let character of str) {
     reversed = character + reversed;
   }
@@ -45,6 +45,15 @@ function reverse(str) {
   // arrayString.reverse();
   // return arrayString.join('');
   return str.split('').reverse().join('');
+}
+
+// Solution 4: Complicated but cool
+function reverse(str) {
+  // return str.split('').reduce((reversed, character) => {
+  //   return character + reversed;
+  // });
+  // 
+  return str.split('').reduce((rev, char) => char + rev, '');
 }
 
 module.exports = reverse;
