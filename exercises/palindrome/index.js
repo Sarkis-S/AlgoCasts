@@ -10,19 +10,16 @@
 // Solution 1 (My solution):
 function palindrome(str) {
   // Start by reversing the string
-
   // let reversedString = str.split('').reduce((reversed, character) => {
   //   return character + reversed;
   // }, '');
 
+  // Instead of reduce, reverse() can be an alternative
   let reversedString = str.split('').reduce((reversed, character) => character + reversed, '');
   // Then compare reversed string with originial string
-  if (reversedString === str) {
     // If they match return true
-    return true;
-  }
-  // Otherwise return false
-  return false;
+    // Otherwise return false
+  return reversedString === str;
 }
 
 module.exports = palindrome;
