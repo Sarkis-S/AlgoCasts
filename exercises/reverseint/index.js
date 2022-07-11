@@ -8,6 +8,7 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
+// Solution 1: (My solution)
 function reverseInt(number) {
   let output = [];
   let isNegative = false;
@@ -32,6 +33,20 @@ function reverseInt(number) {
   let final = output.join('');
   // return final output parsed and adding - as needed
   return isNegative ? -parseInt(final) : parseInt(final);
+}
+
+
+// Solution 2: (Simplified version)
+function reverseInt(number) {
+  let reversed = number.toString().split('').reverse().join('');
+  return (number < 0) ? parseInt(reversed) * -1 : parseInt(reversed);
+}
+
+
+// Solution 3: (Even more simplified)
+function reverseInt(number) {
+  let reversed = number.toString().split('').reverse().join('');
+  return parseInt(reversed) * Math.sign(number);
 }
 
 module.exports = reverseInt;
