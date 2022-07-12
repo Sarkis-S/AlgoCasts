@@ -12,6 +12,23 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+  // create a loops that iterates n times to console log n
+  for (let i = 1; i <= n; i++) {
+    // if the number is a multiple of 3 log fizz
+    if ((i % 3 === 0) && (i % 5 === 0)) {
+      console.log('fizzbuzz');
+    // if the number is a multiple of 5 log buzz
+    } else if(i % 5 === 0) {
+      console.log('buzz');
+    // if the number is a multiple of 3 & 5 log fizzbuzz
+    } else if (i % 3 === 0) {
+      console.log('fizz');
+    // otherwise just log current n
+    } else {
+      console.log(i);
+    }
+  }
+}
 
 module.exports = fizzBuzz;
