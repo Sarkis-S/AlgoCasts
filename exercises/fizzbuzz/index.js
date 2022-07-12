@@ -15,16 +15,18 @@
 function fizzBuzz(n) {
   // create a loops that iterates n times to console log n
   for (let i = 1; i <= n; i++) {
-    // if the number is a multiple of 3 log fizz
+    // if the number is a multiple of 3 and 5 log fizzbuzz
+    // we start with this condition first as if else statements execute
+    // only one of the statement and we want to test all conditions
     if ((i % 3 === 0) && (i % 5 === 0)) {
       console.log('fizzbuzz');
     // if the number is a multiple of 5 log buzz
     } else if(i % 5 === 0) {
       console.log('buzz');
-    // if the number is a multiple of 3 & 5 log fizzbuzz
+    // if the number is a multiple of 3 log fizz
     } else if (i % 3 === 0) {
       console.log('fizz');
-    // otherwise just log current n
+    // otherwise just log current i
     } else {
       console.log(i);
     }
