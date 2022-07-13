@@ -13,28 +13,9 @@ function anagrams(stringA, stringB) {
   // punctuations then make them lowercase
   // use string.replace(/[^\w]/g,'').toLowerCase();
 
-  const string1 = stringA.replace(/[^\w]/g,'').toLowerCase();
-  const string2 = stringB.replace(/[^\w]/g,'').toLowerCase();
-
   // store all character and occurences for string A and B in an object
-  const letters1 = {};
-  const letters2 = {};
-
-  for (let char in string1) {
-    if (!letters1[string1[char]]) {
-      letters1[string1[char]] = 1;
-    } else {
-      letters1[string1[char]]++;
-    }
-  }
-
-  for (let char in string2) {
-    if (!letters2[string2[char]]) {
-      letters2[string2[char]] = 1;
-    } else {
-      letters2[string2[char]]++;
-    }
-  }
+  const letters1 = charMapper(stringA);
+  const letters2 = charMapper(stringB);
 
   // check if the size of both object are the same
   if (Object.keys(letters1).length !== Object.keys(letters2).length) {
@@ -50,6 +31,18 @@ function anagrams(stringA, stringB) {
   
   // if all check passes return true
   return true;
+}
+
+// Helper function:
+const charMapper = (string) => {
+  const charMap = {};
+  const newStr = string.replace(/[^\w]/g,'').toLowerCase();
+
+  for (let char of newStr) {
+    charMap[char] = charMap[char] + 1 || 1;
+  }
+
+  return charMap;
 }
 
 module.exports = anagrams;
