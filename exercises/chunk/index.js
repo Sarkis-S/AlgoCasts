@@ -8,6 +8,7 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
+// My solution:
 function chunk(array, size) {
   // create final output array
   let output = [];
@@ -17,7 +18,7 @@ function chunk(array, size) {
   let count = 0;
 
   // iterate through the array
-  for (number of array) {
+  for (let number of array) {
     // find the last element
     const last = array[array.length - 1];
     
@@ -47,6 +48,29 @@ function chunk(array, size) {
 
   // return the output array
   return output;
+}
+
+// Solution 2:
+function chunk(array, size) {
+  // create empty array to hold chunks
+  const chunked = [];
+
+  // for each element in unchunked array
+  for (let element of array) {
+    // retreive the last element in chunked
+    const last = chunked[chunked.length - 1];
+
+    // if the element does not exist or length is = to chunk size
+    if (!last || last.length === size) {
+      // push a new chunk into chunked w current element
+      chunked.push([element]);
+    } else {
+      // otherwise add the current element into chunk
+      last.push(element);
+    }
+  }
+
+  return chunked;
 }
 
 module.exports = chunk;
