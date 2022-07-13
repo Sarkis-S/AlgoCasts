@@ -50,6 +50,7 @@ function chunk(array, size) {
   return output;
 }
 
+
 // Solution 2:
 function chunk(array, size) {
   // create empty array to hold chunks
@@ -68,6 +69,20 @@ function chunk(array, size) {
       // otherwise add the current element into chunk
       last.push(element);
     }
+  }
+
+  return chunked;
+}
+
+
+// Solution 3: (Best solution)
+function chunk(array, size) {
+  const chunked = [];
+  let index = 0;
+
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
   }
 
   return chunked;
