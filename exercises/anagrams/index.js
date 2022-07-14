@@ -8,6 +8,7 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+// My solution:
 function anagrams(stringA, stringB) {
   // We're going to convert both string params to text and remove all
   // punctuations then make them lowercase
@@ -43,6 +44,18 @@ const charMapper = (string) => {
   }
 
   return charMap;
+}
+
+// Solution 2: (Note: sort my cause issues depending on string)
+const anagrams = (stringA, stringB) => {
+  return cleanString(stringA) === cleanString(stringB);
+}
+
+const cleanString = (string) => {
+  return string.replace(/[^\w]/g, '')
+    .toLowerCase().split('')
+    .sort()
+    .join('');
 }
 
 module.exports = anagrams;
