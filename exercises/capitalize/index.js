@@ -7,6 +7,31 @@
 //   capitalize('a lazy fox') --> 'A Lazy Fox'
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
-function capitalize(str) {}
+// My solution:
+function capitalize(str) {
+  let capitalized = '';
+
+  // iterate through the string
+  for (let i = 0; i < str.length; i++) {
+    let temp = '';
+
+    // handles previous element for first letter of word
+    if (str[i - 1] === undefined) {
+      capitalized += str[i].toUpperCase();
+    // checks if the prev element is an emnpty string
+    // then concats the current letter to output capitalized
+    } else if (str[i - 1] === ' ') {
+      temp += str[i];
+      capitalized += temp.toUpperCase();
+    // if there is no empty string in prev iteration
+    // simply concat to output
+    } else {
+      capitalized += str[i];
+    }
+  }
+
+  // return output string
+  return capitalized;
+}
 
 module.exports = capitalize;
