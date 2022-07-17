@@ -17,6 +17,26 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+  // Loop for creating rows of columns
+  for (let row = 0; row < n; row++) {
+    // this is output step
+    let step = '';
+
+    // 2nd loop (unfortunately) to create columns
+    for (let column = 0; column < n; column++) {
+      // if the column is less than or equal to current row
+      if (column <= row) {
+        // add # to the step
+        step += '#';
+        // otherwise add the space
+      } else {
+        step += ' ';
+      }
+    }
+    // create the step downward
+    console.log(step);
+  }
+}
 
 module.exports = steps;
