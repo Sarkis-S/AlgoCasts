@@ -9,7 +9,7 @@
 
 function vowels(str) {
   // create array identifying all vowels
-  let alphabet = ['a', 'e', 'i', 'o', 'u'];
+  const alphabet = ['a', 'e', 'i', 'o', 'u'];
   let count = 0;
 
   // iterate through string
@@ -22,6 +22,11 @@ function vowels(str) {
   }
   // return the count
   return count;
+}
+
+function vowels(str) {
+  const matches = str.match(/[aeiou]/gi);
+  return matches ? matches.length : 0;
 }
 
 module.exports = vowels;
