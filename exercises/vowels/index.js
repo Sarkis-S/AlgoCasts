@@ -7,6 +7,7 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
+// My solution:
 function vowels(str) {
   // create array identifying all vowels
   const alphabet = ['a', 'e', 'i', 'o', 'u'];
@@ -24,6 +25,7 @@ function vowels(str) {
   return count;
 }
 
+// Second solution:
 function vowels(str) {
   const matches = str.match(/[aeiou]/gi);
   return matches ? matches.length : 0;
