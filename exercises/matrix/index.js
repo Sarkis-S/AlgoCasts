@@ -35,6 +35,21 @@ function matrix(n) {
       // if the iteration hits Nth column (need to figure this part out)
       // Challenging: revising another day
   // return output array matrix
+
+
+  // Solution notes:
+  // create empty array of arrays called 'results'
+  // create counter varibale starting at 1
+  // as long as (start column <= end column) AND (start row <=end row)
+    // loop from start column to end column
+      // at rsults[start_row][i] assign counter variable
+      // increment counter
+    // increment start row
+    // loop from start row to end row
+      // at result[i][end_column] assign counter variable
+      // increment coutner
+    // decrement end row
+    // ... repeat for other two sides
 }
 
 matrix(3);
