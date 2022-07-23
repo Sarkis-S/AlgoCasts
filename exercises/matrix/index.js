@@ -16,42 +16,61 @@
 //     [10,  9,  8, 7]]
 
 function matrix(n) {
-  // My notes:
-  // Looking at the pattern there are n columns and n rows
-  // It may be a good idea to at some point subtract the column by 1 iteratively
-  // And likewise the same could be said about the rows
-
-  // There looks to be a nested for loop with calculations done within
-  // I don't believe creating rows and then pushing it will be wise
-  // It would be difficult to calculate and keep track of the position
-
-  // create array output variable
-  
-  // iterate n times and push empty array to output
-  // this will create out nested array matrix
-  
-  // Iterate through output array 
-    // pushing the current element into array
-      // if the iteration hits Nth column (need to figure this part out)
-      // Challenging: revising another day
-  // return output array matrix
-
-
-  // Solution notes:
   // create empty array of arrays called 'results'
-  // create counter varibale starting at 1
-  // as long as (start column <= end column) AND (start row <=end row)
-    // loop from start column to end column
-      // at rsults[start_row][i] assign counter variable
-      // increment counter
-    // increment start row
-    // loop from start row to end row
-      // at result[i][end_column] assign counter variable
-      // increment coutner
-    // decrement end row
-    // ... repeat for other two sides
-}
+  const results = [];
 
-matrix(3);
+  for (let i = 0; i < n; i++) {
+    results.push([]);
+  }
+
+  // create counter varibale starting at 1
+  let counter = 1;
+  let startColumn = 0;
+  let endColumn = n - 1;
+  let startRow = 0;
+  let endRow = n - 1;
+
+  // as long as (start column <= end column) AND (start row <=end row)
+  while (startColumn <= endColumn && startRow <= endRow) {
+    // loop from start column to end column
+    for (let i = startColumn; i <= endColumn; i++) {
+      // at rsults[start_row][i] assign counter variable
+      results[startRow][i] = counter;
+      // increment counter
+      counter++;
+    }
+
+    // increment start row
+    startRow++;
+
+    // loop from start row to end row
+    for (let i = startRow; i <= endRow; i++) {
+      // at result[i][end_column] assign counter variable
+      results[i][endColumn] = counter;
+      // increment coutner
+      counter++;
+    }
+
+    // decrement end column
+    endColumn--;
+
+    // ... repeat for other two sides
+    for (let i = endColumn; i >= startColumn; i--) {
+      results[endRow][i] = counter;
+      counter++;
+    }
+    
+    endRow--;
+
+    for (let i = endRow; i >= startRow; i--) {
+      results[i][startColumn] = counter;
+      counter++;
+    }
+
+    startColumn++;
+  }
+
+  return results;
+}
 
 module.exports = matrix;
