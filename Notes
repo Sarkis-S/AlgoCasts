@@ -1,0 +1,13 @@
+Algorithms / Runtime Complexity
+
+Constant Time => 1 => No matter how many elements is being worked with, the algorithm/operation will always take the same amount of time
+
+Logarithmic Time => log(n) => If doubling the number of elements that are iterating over doesn’t double the amount of work. Assume that searching operations are log(n)
+
+Linear Time => n => Iterating through all elements in a collection of data. If running into a loop spanning from 0 to array length, this probably have n or linear runtime
+
+Quasilinear Time => n * log(n) => True if doubling the number of elements iterating over doesn’t double the amount of work. Assume any sorting operation is n * log(n)
+
+Quadratic Time => n ^ 2 => Every element in a collection has to be compared to every other element. The handshake problem.
+
+Exponential Time => 2 ^ n => If adding a single element to a collection, the procession power required doubles
