@@ -8,6 +8,20 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+const fib = (n) => {
+  // create new array to store sequence
+  let newArr = [0, 1];
+
+  // use for loop to push and create the sequence
+  for (let i = 2; i <= n; i++) {
+    let prev = newArr[i - 2];
+    let current = newArr[i - 1];
+    
+    newArr.push(prev + current);
+  }
+
+  // return the number in the sequence that matches n
+  return newArr[n];
+}
 
 module.exports = fib;
