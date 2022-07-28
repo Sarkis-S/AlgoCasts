@@ -8,6 +8,7 @@
 // Example:
 //   fib(4) === 3
 
+// my solution:
 const fib = (n) => {
   // create new array to store sequence
   let newArr = [0, 1];
@@ -22,6 +23,16 @@ const fib = (n) => {
 
   // return the number in the sequence that matches n
   return newArr[n];
+}
+
+
+// recursive solution:
+const fib = (n) => {
+  if (n < 2) {
+    return n;
+  }
+
+  return fib(n - 1) + fib(n - 2);
 }
 
 module.exports = fib;
