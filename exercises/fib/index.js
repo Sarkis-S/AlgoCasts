@@ -9,30 +9,50 @@
 //   fib(4) === 3
 
 // my solution:
-const fib = (n) => {
-  // create new array to store sequence
-  let newArr = [0, 1];
+// const fib = (n) => {
+//   // create new array to store sequence
+//   let newArr = [0, 1];
 
-  // use for loop to push and create the sequence
-  for (let i = 2; i <= n; i++) {
-    let prev = newArr[i - 2];
-    let current = newArr[i - 1];
+//   // use for loop to push and create the sequence
+//   for (let i = 2; i <= n; i++) {
+//     let prev = newArr[i - 2];
+//     let current = newArr[i - 1];
     
-    newArr.push(prev + current);
-  }
+//     newArr.push(prev + current);
+//   }
 
-  // return the number in the sequence that matches n
-  return newArr[n];
+//   // return the number in the sequence that matches n
+//   return newArr[n];
+// }
+
+// Memoization
+const memoize = (func) => {
+  const cache = {};
+  
+  return (...args) => {
+    if (cache[args]) {
+      return cache[args];
+    }
+
+    const result = func.apply(this, args);
+    cache[args] = result;
+
+    return result;
+  }
 }
 
 
-// recursive solution:
-const fib = (n) => {
+// slow recursive solution:
+const slowFib = (n) => {
   if (n < 2) {
     return n;
   }
-
+  
   return fib(n - 1) + fib(n - 2);
 }
+
+// we'll pass the slowFib into our memoize function
+// to dramatically speed up the process
+const fib = memoize(slowFib);
 
 module.exports = fib;
