@@ -8,6 +8,20 @@
 //     q.add(1);
 //     q.remove(); // returns 1;
 
-class Queue {}
+// My note: in JavaScript we use unshift to put an element to the
+// start of an array, while pop removes it from the back
+class Queue {
+  constructor() {
+    this.data = [];
+  }
+
+  add(record) {
+    this.data.unshift(record);
+  }
+
+  remove() {
+    return this.data.pop();
+  }
+}
 
 module.exports = Queue;
