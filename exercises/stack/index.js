@@ -10,6 +10,31 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+class Stack {
+  constructor() {
+    this.data = [];
+  }
+  // FILO - First in Last Out
+  push(data) {
+    this.data.push(data);
+  }
+
+  pop(data) {
+    return this.data.pop(data, 0);
+  }
+
+  peek() {
+    return this.data[this.data.length - 1];
+  }
+}
+
+// const newStack = new Stack();
+// newStack.push(1);
+// newStack.push(3);
+// newStack.push(5);
+
+// Since 5 is last in, it comes out first
+// Like putting in Pringles in and out of its container
+// console.log(newStack.peek());
 
 module.exports = Stack;
