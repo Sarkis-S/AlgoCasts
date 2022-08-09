@@ -42,6 +42,69 @@ class LinkedList {
 
     return counter;
   }
+
+  getFirst() {
+    return this.head;
+  }
+
+  getLast() {
+    if (!this.head) {
+      return null;
+    }
+
+    let node = this.head;
+    
+    while(node) {
+      if (!node.next) {
+        return node;
+      }
+      
+      node = node.next;
+    }
+  }
+
+  clear() {
+    this.head = null;
+  }
+
+  removeFirst() {
+    if (!this.head) {
+      return;
+    }
+
+    // let newHead = this.head.next;
+    // delete this.head;
+    // this.head = newHead;
+
+    // better solution with no delete
+    this.head = this.head.next;
+  }
+
+  removeLast() {
+    // if there is no node
+    if(!this.head) {
+      return;
+    }
+    // if the second node doesn't exist
+    if (!this.head.next) {
+      this.head = null;
+      return;
+    }
+
+    let prev = this.head;
+    let node = this.head.next;
+    // how this works is it keeps iterating while there is a node
+    while (node.next) {
+      // it then assigns prev node to the current node
+      prev = node;
+      // then sets the current node to the next
+      // loops until current node is set to null (last)
+      node = node.next;
+    }
+    // once the current node is at the end (null)
+    // instead of deleting we're overwriting to null
+    prev.next = null;
+  }
 }
 
 
