@@ -105,7 +105,51 @@ class LinkedList {
     // instead of deleting we're overwriting to null
     prev.next = null;
   }
-}
 
+  insertLast (data) {
+    const last = this.getLast();
+
+    if (last) {
+      last.next = new Node(data);
+    } else {
+      this.head = new Node(data);
+    }
+  }
+
+  getAt(index) {
+    let counter = 0;
+    let node = this.head;
+
+    while(node) {
+      if (counter === index) {
+        return node;
+      }
+
+      counter++;
+      node = node.next;
+    }
+
+    return null;
+  }
+
+  removeAt(index) {
+    if (!this.head) {
+      return;
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    const prev = this.getAt(index - 1);
+
+    if (!prev || !prev.next) {
+      return;
+    }
+
+    prev.next = prev.next.next;
+  }
+}
 
 module.exports = { Node, LinkedList };
