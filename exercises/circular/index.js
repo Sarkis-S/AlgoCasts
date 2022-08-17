@@ -12,7 +12,7 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {
+const circular = (list) => {
   let slow = list.head;
   let fast = list.head;
   // similar to midpoint implementation
