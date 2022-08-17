@@ -12,6 +12,19 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-function midpoint(list) {}
+const midpoint = (list) => {
+  // slow will move from node to node
+  // fast will move 2 nodes at a time
+  let slow = list.head;
+  let fast = list.head;
+  // check to see if there are two nodes in front of fast every iteration
+  // if there isn't we can say slow is at the midpoint
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  // if there isn't we can say slow is at the midpoint
+  return slow;
+}
 
 module.exports = midpoint;

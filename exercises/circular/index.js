@@ -12,6 +12,22 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+function circular(list) {
+  let slow = list.head;
+  let fast = list.head;
+  // similar to midpoint implementation
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    // check is both nodes are exact
+    if (slow === fast) {
+      // return true if true
+      return true;
+    }
+  }
+  // otherwise return false since
+  // in a reg LinkedList there is an end
+  return false;
+}
 
 module.exports = circular;
