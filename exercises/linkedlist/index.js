@@ -150,6 +150,34 @@ class LinkedList {
 
     prev.next = prev.next.next;
   }
+
+  insertAt(data, index) {
+    // ensure there is a head else create one with the data
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+    // handles edge case of inserting at index 0
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+    // grab previous node to insert data in front of it
+    // also handles where index is out of bound by grabbing last
+    const prev = this.getAt(index - 1) || this.getLast();
+    const node = new Node(data, prev.next);
+    // insert next node after previous node
+    prev.next = node;
+  }
+
+  forEach() {
+    let node = this.head
+
+    while(node) {
+      node.data += 10;
+      node = node.next;
+    }
+  };
 }
 
 module.exports = { Node, LinkedList };
