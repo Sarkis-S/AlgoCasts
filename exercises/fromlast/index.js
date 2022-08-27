@@ -24,11 +24,9 @@ const fromLast = (list, n) => {
   while (fast.next) {
     slow = slow.next;
     fast = fast.next;
-
-    if (!fast.next) {
-      return slow;
-    }
   }
+  
+  return slow;
 }
 
 module.exports = fromLast;
