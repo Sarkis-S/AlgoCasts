@@ -30,6 +30,38 @@ class Node {
   }
 }
 
-class Tree {}
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+
+  traverseBF(fn) {
+    // initialize array with empty root
+    const array = [this.root];
+
+    while(array.length) {
+      // remove head node
+      const node = array.shift();
+      // push it's children into BACK of array
+      array.push(...node.children);
+      // apply the function to head node;
+      fn(node);
+    }
+  }
+
+  traverseDF (fn) {
+    // initialize array with empty root
+    const array = [this.root];
+
+    while(array.length) {
+      // grab the head[0] node breaking it away from array
+      const node = array.shift();
+      // add child element to the FRONT of the array
+      array.unshift(...node.children);
+      // apply the fn to the head node
+      fn(node);
+    }
+  }
+}
 
 module.exports = { Tree, Node };
