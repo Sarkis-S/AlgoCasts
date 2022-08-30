@@ -18,7 +18,6 @@ const midpoint = (list) => {
   let slow = list.head;
   let fast = list.head;
   // check to see if there are two nodes in front of fast every iteration
-  // if there isn't we can say slow is at the midpoint
   while (fast.next && fast.next.next) {
     slow = slow.next;
     fast = fast.next.next;
