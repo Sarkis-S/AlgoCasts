@@ -4,5 +4,5 @@ Companion repo to [The Coding Inteview Bootcamp: Algorithms + Data Structures](h
 
 # Side Notes
 
-Run `yarn add jest` in the root folder
+Run `yarn add jest` in the root folder. 
 To run test on a specific test.js file use `yarn test folder/test.js --watch`
